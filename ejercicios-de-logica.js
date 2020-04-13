@@ -157,20 +157,25 @@ console.log(toMorseCode(str));
 const string1 = "Hola soy una string";
 const string2 = "Hola soy una otra string";
 
-let checkLongestSequence = (str1, str2) => {
-    let longestSequence = '';
-    for (let i = 0; i < str1.length; i++) {
-        for (let j = 0; j < str2.length; j++) {
-            if (str1.charAt(i) === str2.charAt(j)) {
-                //??
-            }
+let findLongestSubsequence = (str1, str2) => {
+    let longestSubsequence = '';
+    let shortestString = '';
+    if(str1.length < str2.length){
+        shortestString = str1.length;
+    } else {
+        shortestString = str2.length;
+    }
+    for (let i = 0; i < shortestString; i++) {
+        if (str1.charAt(i) === str2.charAt(i)) {
+            longestSubsequence += str1.charAt(i);
+        } else {
+            break;
         }
     }
-
-    return longestSequence;
+    return longestSubsequence;
 }
 
-//console.log(checkLongestSequence(string1, string2));
+console.log(findLongestSubsequence(string1, string2));
 
 
 // 9 - If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
